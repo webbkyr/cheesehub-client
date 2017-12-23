@@ -7,13 +7,16 @@ export default class CheeseList extends React.Component {
   }
 
   render() {
-    const list = this.props.cheeses.map(cheese => {
-      return <ul>
-        <li>{cheese}</li>
-        </ul>
+    const list = this.props.cheeses.map((cheese, index) => {
+      return (
+        <li key={index}>{cheese}</li>
+      )
+
     });
     return (
-      <div>{list}</div>
+        <ul>
+        {list}
+        </ul>
     )
   }
 
