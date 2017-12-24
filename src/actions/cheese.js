@@ -20,7 +20,7 @@ export const fetchCheesesError = (err) => ({
   err
 })
 
-//async action
+//async action; there can be more than one
 
 export const fetchCheeses = () => {
   return function(dispatch) {
