@@ -4,26 +4,27 @@ export const FETCH_CHEESES_ERROR = 'FETCH CHEESES ERROR';
 
 //sync actions
 
-export const fetchCheesesRequest = () => {
+export const fetchCheesesRequest = () => ({
   type: FETCH_CHEESES_REQUEST
 
-}
+})
 
-export const fetchCheesesSuccess = (data) => {
+export const fetchCheesesSuccess = (data) => ({
   type: FETCH_CHEESES_SUCCESS,
   data
 
-}
+})
 
-export const fetCheesesError = (err) => {
+export const fetchCheesesError = (err) => ({
   type: FETCH_CHEESES_ERROR,
   err
-}
+})
 
 //async action
 
 export const fetchCheeses = () => {
   return function(dispatch) {
+    dispatch(fetchCheesesRequest());
     fetch('http://localhost:8080/api/cheeses').then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
@@ -31,6 +32,8 @@ export const fetchCheeses = () => {
       return res.json();
     }).then(cheese => {
       dispatch(fetchCheesesSuccess(cheese));
-    });
+    }).catch(err => {
+      dispatch(fetchCheesesError(err))
+    })
   };
 };

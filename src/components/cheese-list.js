@@ -1,9 +1,13 @@
 import React from 'react';
+import {fetchCheeses} from '../actions/cheese';
+import { connect } from 'react-redux';
 
-export default class CheeseList extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(props)
+export  class CheeseList extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
+componentDidMount() {
+    this.props.dispatch(fetchCheeses());
   }
 
   render() {
@@ -21,3 +25,5 @@ export default class CheeseList extends React.Component {
   }
 
 }
+
+export default connect()(CheeseList)
