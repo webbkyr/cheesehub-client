@@ -31,9 +31,7 @@ export  class CheeseList extends React.Component {
   render() {
     return (
       <div>
-        <ul>
         {this.renderData()}
-        </ul>
         <button> Click Me!</button>
       </div>
     )
