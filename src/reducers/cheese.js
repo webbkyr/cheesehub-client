@@ -13,7 +13,7 @@ export const reducer = (state=initialState, action) => {
     break;
 
     case FETCH_CHEESES_SUCCESS:
-    return Object.assign({}, state, {loading: false, cheeses: action.data, error: null})
+    return Object.assign({}, state, {loading: false, cheeses :action.data, error: null})
     break;
 
     case FETCH_CHEESES_ERROR:
